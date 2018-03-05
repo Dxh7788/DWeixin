@@ -1,9 +1,11 @@
 package com.link.entity;
 
 import com.link.ArticleConfig;
+import com.link.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
@@ -24,12 +26,19 @@ import static org.junit.Assert.assertTrue;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class JdbcTest
 {
+    @Autowired
+    UserService userService;
     /**
      * @return the suite of tests being tested
      */
     @Test
+    @Rollback
+    @Transactional
     public void  mainTest(){
-
+        User user = new User();
+        user.setName("ddd");
+        user.setPwd("123456");
+        userService.createUser(user);
     }
 
     /**

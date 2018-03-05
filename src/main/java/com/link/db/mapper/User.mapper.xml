@@ -13,7 +13,7 @@
     <select id="findOne" parameterType="java.lang.Long" resultMap="User">
         SELECT <include refid="Base_Column_List"/> FROM user WHERE id = #{id}
     </select>
-    <insert id="insert" parameterType="com.neo.entity.UserEntity" >
+    <insert id="insert" parameterType="com.link.entity.User" >
         INSERT INTO user (name,pwd) VALUES (#{name}, #{pwd})
     </insert>
 </mapper>
