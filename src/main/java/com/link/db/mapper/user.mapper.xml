@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.link.db.UserMapper">
+    <resultMap id="User" type="com.link.entity.User">
+        <id column="id" property="id" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result property="name" column="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="pwd" column="pwd" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+    <sql id="Base_Column_List">id, name, pwd</sql>
+    <select id="findAll" resultMap="User">
+        SELECT <include refid="Base_Column_List"/> FROM user
+    </select>
+    <select id="findOne" parameterType="java.lang.Long" resultMap="User">
+        SELECT <include refid="Base_Column_List"/> FROM user WHERE id = #{id}
+    </select>
+    <insert id="insert" parameterType="com.neo.entity.UserEntity" >
+        INSERT INTO user (name,pwd) VALUES (#{name}, #{pwd})
+    </insert>
+</mapper>
