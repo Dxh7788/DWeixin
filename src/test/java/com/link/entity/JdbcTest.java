@@ -1,6 +1,7 @@
 package com.link.entity;
 
 import com.link.ArticleConfig;
+import com.link.MicroArticleApplication;
 import com.link.service.UserService;
 import org.junit.Before;
 import org.junit.Test;

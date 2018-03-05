@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Import;
 @SpringBootApplication
 @EnableAutoConfiguration
 @MapperScan(value = {"com.link.db"})
-@Import(value = ArticleConfig.class)
+@Import(value = {ArticleConfig.class})
 public class MicroArticleApplication {
 
     public static void main(String[] args) {
