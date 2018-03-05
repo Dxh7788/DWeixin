@@ -1,6 +1,5 @@
 package com.link.article;
 
-import junit.framework.TestSuite;
 import org.junit.Before;
 import org.junit.Test;
 
