@@ -10,6 +10,7 @@ public class LocationRequestMessage extends BaseRequestMessage {
     private Double locationX;//X坐标
     private Double locationY;//Y坐标
     private Integer scale; //范围
+    private String label;//位置信息
 
     public Double getLocationX() {
         return locationX;
@@ -33,5 +34,13 @@ public class LocationRequestMessage extends BaseRequestMessage {
 
     public void setScale(Integer scale) {
         this.scale = scale;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }
