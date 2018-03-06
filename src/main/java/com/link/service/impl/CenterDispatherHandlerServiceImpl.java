@@ -6,6 +6,8 @@ import com.link.service.CenterDispatherHandlerService;
 import com.link.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
@@ -21,6 +23,7 @@ import java.util.Map;
 @Service
 public class CenterDispatherHandlerServiceImpl implements CenterDispatherHandlerService {
 
+    private Logger logger = LoggerFactory.getLogger(getClass());
     public void dispatcher(Map<String, String> map) {
         BaseRequestMessage message = new BaseRequestMessage();
         try {
@@ -42,6 +45,7 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatherHandler
             if (StringUtils.equals(msgType, TypeConstants.MsgType.TEXT_MSG_TYPE)){
                 //文本消息处理
                 textMessageDealer(map, shadowMessage);
+                logger.debug("处理文本消息");
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.IMAGE_MSG_TYPE)){
                 //图片消息处理
                 imageMessageDealer(map, shadowMessage);
