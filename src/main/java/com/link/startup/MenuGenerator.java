@@ -45,11 +45,9 @@ public class MenuGenerator {
 
         JSONObject menujson=new JSONObject();
         menujson.put("button", button);
-        System.out.println(menujson);
         //这里为请求接口的url +号后面的是token，这里就不做过多对token获取的方法解释
         AccessToken at = HttpUtils.accessToken();
         String url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token="+at.getAccessToken();
-
         try{
             HttpUtils.sendPostBuffer(url, menujson.toJSONString());
         }catch(Exception e){

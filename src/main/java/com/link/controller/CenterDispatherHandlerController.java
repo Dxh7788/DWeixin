@@ -1,6 +1,6 @@
 package com.link.controller;
 
-import com.link.service.CenterDispatherHandlerService;
+import com.link.service.CenterDispatcherHandlerService;
 import com.link.util.SignUtil;
 import com.link.util.XmlUtils;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -28,7 +28,7 @@ public class CenterDispatherHandlerController {
     @Autowired
     HttpServletResponse response;
     @Autowired
-    CenterDispatherHandlerService centerDispatherHandlerService;
+    CenterDispatcherHandlerService centerDispatherHandlerService;
     @RequestMapping(method = RequestMethod.POST)
     public Boolean centerDispatchHandler(){
         boolean bvalue = false;

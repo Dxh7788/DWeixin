@@ -10,6 +10,8 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -21,6 +23,7 @@ import java.nio.charset.Charset;
  * @since 2018/3/6 16:26
  */
 public class HttpUtils {
+    private static Logger logger = LoggerFactory.getLogger(HttpUtils.class);
     //获取access_token
     public static AccessToken accessToken(){
         String url = AccessConfig.APP_URL+"?grant_type=client_credential&appid="+AccessConfig.APP_ID+"&secret="+AccessConfig.APP_SECRET;
@@ -53,9 +56,9 @@ public class HttpUtils {
             // 检验返回码
             int statusCode = response.getStatusLine().getStatusCode();
             if (statusCode == HttpStatus.SC_OK){
-                System.out.println("=================成功======================");
+                logger.debug("#======创建菜单响应成功======#");
             }else {
-                System.out.println("=================失败======================");
+                logger.debug("#======创建菜单响应失败======#");
             }
         } catch (Exception e) {
             e.printStackTrace();
