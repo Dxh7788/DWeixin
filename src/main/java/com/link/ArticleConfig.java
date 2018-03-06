@@ -1,6 +1,5 @@
 package com.link;
 
-import com.link.startup.MenuGenerator;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -38,9 +37,5 @@ public class ArticleConfig {
         bean.setDataSource(primaryDataSource);
         bean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath*:/com/link/db/mapper/*.xml"));
         return bean.getObject();
-    }
-    @Bean
-    public MenuGenerator menuGenerator(){
-        return new MenuGenerator();
     }
 }
