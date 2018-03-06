@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2018/3/6 12:49
  */
 @RestController
-@RequestMapping("/dispatcher")
+@RequestMapping("/darticle")
 public class CenterDispatherHandlerController {
     //中心分发器
     @Autowired
     HttpServletRequest request;
     @Autowired
     CenterDispatherHandlerService centerDispatherHandlerService;
-    @RequestMapping(value = "/to",method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.POST)
     public Boolean centerDispatchHandler(){
         boolean bvalue = false;
         try {
@@ -33,5 +33,9 @@ public class CenterDispatherHandlerController {
             e.printStackTrace();
         }
         return bvalue;
+    }
+    @RequestMapping(method = RequestMethod.GET)
+    public void doGet(){
+
     }
 }
