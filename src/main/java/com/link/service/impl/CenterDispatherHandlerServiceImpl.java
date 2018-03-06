@@ -42,19 +42,56 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatherHandler
             if (StringUtils.equals(msgType, TypeConstants.MsgType.TEXT_MSG_TYPE)){
                 TextRequestMessage textRequestMessage = new TextRequestMessage(shadowMessage);
                 textRequestMessage.setContent(map.get("Content"));
+                handleTextMessage(textRequestMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.IMAGE_MSG_TYPE)){
                 ImageRequestMessage imageRequestMessage = new ImageRequestMessage(shadowMessage);
+                imageRequestMessage.setUrl(map.get("Url"));
+                handleImageMessage(imageRequestMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VOICE_MSG_TYPE)){
-                VoiceRequestMessage imageRequestMessage = new VoiceRequestMessage(shadowMessage);
+                VoiceRequestMessage voiceRequestMessage = new VoiceRequestMessage(shadowMessage);
+                voiceRequestMessage.setMediaId(map.get("MediaId"));
+                voiceRequestMessage.setFormat(map.get("Format"));
+                handleVoiceMessage(voiceRequestMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VIDEO_MSG_TYPE)){
-                VideoRequestMessage imageRequestMessage = new VideoRequestMessage(shadowMessage);
+                VideoRequestMessage videoRequestMessage = new VideoRequestMessage(shadowMessage);
+                videoRequestMessage.setMediaId(map.get("MediaId"));
+                handleVideoMessage(videoRequestMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LOCATION_MSG_TYPE)){
-                LocationRequestMessage imageRequestMessage = new LocationRequestMessage(shadowMessage);
+                LocationRequestMessage locationRequestMessage = new LocationRequestMessage(shadowMessage);
+                locationRequestMessage.setLocationX(Double.valueOf(map.get("Location_X")));
+                locationRequestMessage.setLocationY(Double.valueOf(map.get("Location_Y")));
+                locationRequestMessage.setLabel(map.get("Label"));
+                locationRequestMessage.setScale(Integer.valueOf(map.get("Scale")));
+                handleLocationMessage(locationRequestMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LINK_MSG_TYPE)){
-                LinkRequestMessage imageRequestMessage = new LinkRequestMessage(shadowMessage);
+                LinkRequestMessage linkRequestMessage = new LinkRequestMessage(shadowMessage);
+                linkRequestMessage.setDescription(map.get("Description"));
+                linkRequestMessage.setTitle(map.get("Title"));
+                linkRequestMessage.setUrl(map.get("Url"));
+                handleLinkMessage(linkRequestMessage);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    //处理链接消息
+    private void handleLinkMessage(LinkRequestMessage linkRequestMessage) {
+    }
+
+    //处理地址消息
+    private void handleLocationMessage(LocationRequestMessage locationRequestMessage) {
+    }
+    //处理视频消息
+    private void handleVideoMessage(VideoRequestMessage videoRequestMessage) {
+    }
+    //处理音频消息
+    private void handleVoiceMessage(VoiceRequestMessage voiceRequestMessage) {
+    }
+    //处理图片消息
+    private void handleImageMessage(ImageRequestMessage imageRequestMessage) {
+    }
+    //处理文本消息
+    private void handleTextMessage(TextRequestMessage textRequestMessage) {
     }
 }
