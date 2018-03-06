@@ -35,44 +35,104 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatherHandler
             //发给用户openid
             String fromUserName = map.get("FromUserName");
             //消息类型
-            String msgType = map.get("msgType");
+            String msgType = map.get("MsgType");
             //消息id
-            String magId = map.get("msgId");
-            BaseRequestMessage shadowMessage = new BaseRequestMessage(toUserName, fromUserName, message.getCreateTime(),msgType, magId);
+            String msgId = map.get("MsgId");
+            BaseRequestMessage shadowMessage = new BaseRequestMessage(toUserName, fromUserName, message.getCreateTime(), msgType, msgId);
             if (StringUtils.equals(msgType, TypeConstants.MsgType.TEXT_MSG_TYPE)){
-                TextRequestMessage textRequestMessage = new TextRequestMessage(shadowMessage);
-                textRequestMessage.setContent(map.get("Content"));
-                handleTextMessage(textRequestMessage);
+                //文本消息处理
+                textMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.IMAGE_MSG_TYPE)){
-                ImageRequestMessage imageRequestMessage = new ImageRequestMessage(shadowMessage);
-                imageRequestMessage.setUrl(map.get("Url"));
-                handleImageMessage(imageRequestMessage);
+                //图片消息处理
+                imageMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VOICE_MSG_TYPE)){
-                VoiceRequestMessage voiceRequestMessage = new VoiceRequestMessage(shadowMessage);
-                voiceRequestMessage.setMediaId(map.get("MediaId"));
-                voiceRequestMessage.setFormat(map.get("Format"));
-                handleVoiceMessage(voiceRequestMessage);
+                //音频消息处理
+                voiceMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VIDEO_MSG_TYPE)){
-                VideoRequestMessage videoRequestMessage = new VideoRequestMessage(shadowMessage);
-                videoRequestMessage.setMediaId(map.get("MediaId"));
-                handleVideoMessage(videoRequestMessage);
+                //视频消息处理
+                videoMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LOCATION_MSG_TYPE)){
-                LocationRequestMessage locationRequestMessage = new LocationRequestMessage(shadowMessage);
-                locationRequestMessage.setLocationX(Double.valueOf(map.get("Location_X")));
-                locationRequestMessage.setLocationY(Double.valueOf(map.get("Location_Y")));
-                locationRequestMessage.setLabel(map.get("Label"));
-                locationRequestMessage.setScale(Integer.valueOf(map.get("Scale")));
-                handleLocationMessage(locationRequestMessage);
+                //定位信息处理
+                locationMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LINK_MSG_TYPE)){
-                LinkRequestMessage linkRequestMessage = new LinkRequestMessage(shadowMessage);
-                linkRequestMessage.setDescription(map.get("Description"));
-                linkRequestMessage.setTitle(map.get("Title"));
-                linkRequestMessage.setUrl(map.get("Url"));
-                handleLinkMessage(linkRequestMessage);
+                //链接消息处理
+                linkMessageDealer(map, shadowMessage);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void linkMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        LinkRequestMessage linkRequestMessage = wrapLinkRequestMessage(map, shadowMessage);
+        handleLinkMessage(linkRequestMessage);
+    }
+
+    private void locationMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        LocationRequestMessage locationRequestMessage = wrapLocationRequestMessage(map, shadowMessage);
+        handleLocationMessage(locationRequestMessage);
+    }
+
+    private void videoMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        VideoRequestMessage videoRequestMessage = wrapVideoRequestMessage(map, shadowMessage);
+        handleVideoMessage(videoRequestMessage);
+    }
+
+    private void voiceMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        VoiceRequestMessage voiceRequestMessage = wrapVoiceRequestMessage(map, shadowMessage);
+        handleVoiceMessage(voiceRequestMessage);
+    }
+
+    private void imageMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        ImageRequestMessage imageRequestMessage = wrapImageRequestMessage(map, shadowMessage);
+        handleImageMessage(imageRequestMessage);
+    }
+
+    private void textMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        TextRequestMessage textRequestMessage = wrapTextRequestMessage(map, shadowMessage);
+        handleTextMessage(textRequestMessage);
+    }
+
+    private TextRequestMessage wrapTextRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        TextRequestMessage textRequestMessage = new TextRequestMessage(shadowMessage);
+        textRequestMessage.setContent(map.get("Content"));
+        return textRequestMessage;
+    }
+
+    private ImageRequestMessage wrapImageRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        ImageRequestMessage imageRequestMessage = new ImageRequestMessage(shadowMessage);
+        imageRequestMessage.setUrl(map.get("Url"));
+        return imageRequestMessage;
+    }
+
+    private VoiceRequestMessage wrapVoiceRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        VoiceRequestMessage voiceRequestMessage = new VoiceRequestMessage(shadowMessage);
+        voiceRequestMessage.setMediaId(map.get("MediaId"));
+        voiceRequestMessage.setFormat(map.get("Format"));
+        return voiceRequestMessage;
+    }
+
+    private VideoRequestMessage wrapVideoRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        VideoRequestMessage videoRequestMessage = new VideoRequestMessage(shadowMessage);
+        videoRequestMessage.setMediaId(map.get("MediaId"));
+        return videoRequestMessage;
+    }
+
+    private LocationRequestMessage wrapLocationRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        LocationRequestMessage locationRequestMessage = new LocationRequestMessage(shadowMessage);
+        locationRequestMessage.setLocationX(Double.valueOf(map.get("Location_X")));
+        locationRequestMessage.setLocationY(Double.valueOf(map.get("Location_Y")));
+        locationRequestMessage.setLabel(map.get("Label"));
+        locationRequestMessage.setScale(Integer.valueOf(map.get("Scale")));
+        return locationRequestMessage;
+    }
+
+    private LinkRequestMessage wrapLinkRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
+        LinkRequestMessage linkRequestMessage = new LinkRequestMessage(shadowMessage);
+        linkRequestMessage.setDescription(map.get("Description"));
+        linkRequestMessage.setTitle(map.get("Title"));
+        linkRequestMessage.setUrl(map.get("Url"));
+        return linkRequestMessage;
     }
 
     //处理链接消息

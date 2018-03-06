@@ -14,5 +14,5 @@ public class AccessConfig {
     //用户秘钥
     public static final String APP_SECRET = "94cdebed39843184d35180a420064c2e";
     //token
-    public static final String TOKEN = "bokk";
+    public static final String TOKEN = "darticle";
 }
