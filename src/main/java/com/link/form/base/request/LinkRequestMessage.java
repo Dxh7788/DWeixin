@@ -11,6 +11,17 @@ public class LinkRequestMessage extends BaseRequestMessage {
     private String Description;
     private String url;
 
+    public LinkRequestMessage(BaseRequestMessage baseRequestMessage) {
+        this.setCreateTime(baseRequestMessage.getCreateTime());
+        this.setFromUserName(baseRequestMessage.getFromUserName());
+        this.setMsgId(baseRequestMessage.getMsgId());
+        this.setToUserName(baseRequestMessage.getToUserName());
+        this.setMsgType(baseRequestMessage.getMsgType());
+    }
+
+    public LinkRequestMessage() {
+    }
+
     public String getTitle() {
         return title;
     }

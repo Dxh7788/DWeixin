@@ -1,5 +1,7 @@
 package com.link.controller;
 
+import com.link.service.CenterDispatherHandlerService;
+import com.link.util.XmlUtils;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +20,18 @@ public class CenterDispatherHandlerController {
     //中心分发器
     @Autowired
     HttpServletRequest request;
+    @Autowired
+    CenterDispatherHandlerService centerDispatherHandlerService;
     @RequestMapping(value = "/to",method = RequestMethod.GET)
     public Boolean centerDispatchHandler(){
-        return null;
+        boolean bvalue = false;
+        try {
+            centerDispatherHandlerService.dispatcher(XmlUtils.parseXml(request));
+            bvalue =true;
+        } catch (Exception e){
+            bvalue = false;
+            e.printStackTrace();
+        }
+        return bvalue;
     }
 }

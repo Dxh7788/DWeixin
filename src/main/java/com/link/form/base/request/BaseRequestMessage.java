@@ -16,6 +16,17 @@ public class BaseRequestMessage implements Serializable{
     private String msgType;//消息类型
     private String msgId;//消息id
 
+    public BaseRequestMessage() {
+    }
+
+    public BaseRequestMessage(String toUserName, String fromUserName, Date createTime, String msgType, String msgId) {
+        this.toUserName = toUserName;
+        this.fromUserName = fromUserName;
+        this.createTime = createTime;
+        this.msgType = msgType;
+        this.msgId = msgId;
+    }
+
     public String getToUserName() {
         return toUserName;
     }

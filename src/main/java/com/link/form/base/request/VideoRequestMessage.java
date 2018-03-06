@@ -10,6 +10,16 @@ public class VideoRequestMessage extends BaseRequestMessage{
     private String mediaId;
     private String thumbMediaId;
 
+    public VideoRequestMessage() {
+    }
+
+    public VideoRequestMessage(BaseRequestMessage baseRequestMessage) {
+        this.setCreateTime(baseRequestMessage.getCreateTime());
+        this.setFromUserName(baseRequestMessage.getFromUserName());
+        this.setMsgId(baseRequestMessage.getMsgId());
+        this.setToUserName(baseRequestMessage.getToUserName());
+        this.setMsgType(baseRequestMessage.getMsgType());
+    }
     public String getMediaId() {
         return mediaId;
     }

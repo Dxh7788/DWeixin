@@ -12,6 +12,17 @@ public class LocationRequestMessage extends BaseRequestMessage {
     private Integer scale; //范围
     private String label;//位置信息
 
+    public LocationRequestMessage() {
+    }
+
+    public LocationRequestMessage(BaseRequestMessage baseRequestMessage) {
+        this.setCreateTime(baseRequestMessage.getCreateTime());
+        this.setFromUserName(baseRequestMessage.getFromUserName());
+        this.setMsgId(baseRequestMessage.getMsgId());
+        this.setToUserName(baseRequestMessage.getToUserName());
+        this.setMsgType(baseRequestMessage.getMsgType());
+    }
+
     public Double getLocationX() {
         return locationX;
     }

@@ -1,19 +1,18 @@
 package com.link.form.base.request;
 
-import java.util.Date;
-
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin
  *
  * @author xh.d
  * @since 2018/3/6 12:59
  */
-public class ImageRequestMessage extends BaseRequestMessage {
+public class TextRequestMessage extends BaseRequestMessage {
+    private String content;//文本内容
 
-    public ImageRequestMessage() {
+    public TextRequestMessage() {
     }
 
-    public ImageRequestMessage(BaseRequestMessage baseRequestMessage) {
+    public TextRequestMessage(BaseRequestMessage baseRequestMessage) {
         this.setCreateTime(baseRequestMessage.getCreateTime());
         this.setFromUserName(baseRequestMessage.getFromUserName());
         this.setMsgId(baseRequestMessage.getMsgId());
@@ -21,13 +20,11 @@ public class ImageRequestMessage extends BaseRequestMessage {
         this.setMsgType(baseRequestMessage.getMsgType());
     }
 
-    private String url;//图片url
-
-    public String getUrl() {
-        return url;
+    public String getContent() {
+        return content;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setContent(String content) {
+        this.content = content;
     }
 }
