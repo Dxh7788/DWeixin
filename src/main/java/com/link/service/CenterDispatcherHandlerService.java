@@ -8,7 +8,7 @@ import java.util.Map;
  * @author xh.d
  * @since 2018/3/6 13:42
  */
-public interface CenterDispatherHandlerService {
+public interface CenterDispatcherHandlerService {
 
     void dispatcher(Map<String,String> map);
 }

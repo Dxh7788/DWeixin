@@ -2,15 +2,12 @@ package com.link.service.impl;
 
 import com.link.constants.TypeConstants;
 import com.link.form.base.request.*;
-import com.link.service.CenterDispatherHandlerService;
-import com.link.util.DateUtil;
+import com.link.service.CenterDispatcherHandlerService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
 
@@ -21,7 +18,7 @@ import java.util.Map;
  * @since 2018/3/6 13:42
  */
 @Service
-public class CenterDispatherHandlerServiceImpl implements CenterDispatherHandlerService {
+public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandlerService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
     public void dispatcher(Map<String, String> map) {
