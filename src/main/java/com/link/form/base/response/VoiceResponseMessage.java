@@ -10,7 +10,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * @since 2018/3/7 10:58
  */
 @XStreamAlias("xml")
-public class VoiceReponseMessage {
+public class VoiceResponseMessage extends BaseResponseMessage{
     private Voice voice;
 
     public Voice getVoice() {

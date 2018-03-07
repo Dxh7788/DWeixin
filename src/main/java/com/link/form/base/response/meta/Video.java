@@ -1,6 +1,8 @@
 package com.link.form.base.response.meta;
 
+import com.link.util.CDATAConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin
@@ -10,8 +12,11 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  */
 @XStreamAlias("Video")
 public class Video {
+    @XStreamConverter(CDATAConverter.class)
     private String MediaId;
+    @XStreamConverter(CDATAConverter.class)
     private String Description;
+    @XStreamConverter(CDATAConverter.class)
     private String Title;
 
     public String getMediaId() {

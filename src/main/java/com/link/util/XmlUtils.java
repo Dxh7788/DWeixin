@@ -1,7 +1,7 @@
 package com.link.util;
 
 import com.link.constants.TypeConstants;
-import com.link.form.base.response.BaseResponseMessage;
+import com.link.form.base.response.*;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -47,20 +47,27 @@ public class XmlUtils {
     }
     //包装response的数据为xml
     public static String wrapperXml(BaseResponseMessage message){
-        StringBuffer sb = new StringBuffer();
+        xStream.registerConverter(new CDATAConverter());
+        String str = null;
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
-            //遍历map,首字母大写并加入[!CDATA[]]
+            TextResponseMessage responseMessage = (TextResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.IMAGE_MSG_TYPE)){
-
+            ImageResponseMessage responseMessage = (ImageResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.VOICE_MSG_TYPE)){
-
+            VoiceResponseMessage responseMessage = (VoiceResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.VIDEO_MSG_TYPE)){
-
+            VideoResponseMessage responseMessage = (VideoResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.MUSIC_MSG_TYPE)){
-
+            MusicResponseMessage responseMessage = (MusicResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.NEWS_MSG_TYPE)){
-
+            NewsResponseMessage responseMessage = (NewsResponseMessage)message;
+            str = xStream.toXML(responseMessage);
         }
-        return null;
+        return str;
     }
 }
