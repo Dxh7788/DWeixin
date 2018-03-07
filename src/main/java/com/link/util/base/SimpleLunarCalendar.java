@@ -1,4 +1,4 @@
-package com.link.util;
+package com.link.util.base;
 
 import java.util.Calendar;
 import java.util.Date;

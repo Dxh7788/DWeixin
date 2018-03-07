@@ -1,4 +1,4 @@
-package com.link.util;
+package com.link.util.base;
 
 public enum Week {
 
