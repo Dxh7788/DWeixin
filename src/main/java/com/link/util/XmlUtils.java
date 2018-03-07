@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -47,7 +48,8 @@ public class XmlUtils {
     }
     //包装response的数据为xml
     public static String wrapperXml(BaseResponseMessage message){
-        xStream.registerConverter(new CDATAConverter());
+        xStream.processAnnotations(new Class[]{TextResponseMessage.class, ImageResponseMessage.class, MusicResponseMessage.class,
+                NewsResponseMessage.class, TextResponseMessage.class, VideoResponseMessage.class, VoiceResponseMessage.class});
         String str = null;
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
             TextResponseMessage responseMessage = (TextResponseMessage)message;
@@ -67,6 +69,9 @@ public class XmlUtils {
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.NEWS_MSG_TYPE)){
             NewsResponseMessage responseMessage = (NewsResponseMessage)message;
             str = xStream.toXML(responseMessage);
+        }
+        if (StringUtils.isNotBlank(str)){
+            str = StringEscapeUtils.unescapeXml(str);
         }
         return str;
     }

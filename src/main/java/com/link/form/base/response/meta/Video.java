@@ -1,6 +1,6 @@
 package com.link.form.base.response.meta;
 
-import com.link.util.CDATAConverter;
+import com.link.util.xstream.CDATAConverter;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamConverter;
 
