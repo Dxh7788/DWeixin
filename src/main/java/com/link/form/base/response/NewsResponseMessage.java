@@ -1,6 +1,7 @@
 package com.link.form.base.response;
 
 import com.link.form.base.response.meta.Item;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * @author xh.d
  * @since 2018/3/6 13:15
  */
+@XStreamAlias("xml")
 public class NewsResponseMessage extends BaseResponseMessage {
     private Integer ArticleCount;
     private List<Item> Articles = new ArrayList<Item>(0);

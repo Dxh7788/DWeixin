@@ -50,11 +50,8 @@ public class XmlUtils {
     }
     //包装response的数据为xml
     public static String wrapperXml(BaseResponseMessage message){
-        xStream.processAnnotations(new Class[]{TextResponseMessage.class, ImageResponseMessage.class, MusicResponseMessage.class,
-                NewsResponseMessage.class, TextResponseMessage.class, VideoResponseMessage.class, VoiceResponseMessage.class});
         xStream.autodetectAnnotations(true);
         String str = null;
-        xStream.aliasType("xml",BaseResponseMessage.class);
         xStream.registerConverter(cDataConverter);
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
             TextResponseMessage responseMessage = (TextResponseMessage)message;
