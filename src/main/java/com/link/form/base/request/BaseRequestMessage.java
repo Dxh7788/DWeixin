@@ -1,5 +1,7 @@
 package com.link.form.base.request;
 
+import com.link.form.BaseMessage;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,54 +11,15 @@ import java.util.Date;
  * @author xh.d
  * @since 2018/3/6 12:55
  */
-public class BaseRequestMessage implements Serializable{
-    private String toUserName;//发自谁,openId
-    private String fromUserName;//发给谁
-    private Date createTime;//创建时间
-    private String msgType;//消息类型
+public class BaseRequestMessage extends BaseMessage{
     private String msgId;//消息id
 
     public BaseRequestMessage() {
     }
 
     public BaseRequestMessage(String toUserName, String fromUserName, Date createTime, String msgType, String msgId) {
-        this.toUserName = toUserName;
-        this.fromUserName = fromUserName;
-        this.createTime = createTime;
-        this.msgType = msgType;
+        super(toUserName, fromUserName, createTime, msgType);
         this.msgId = msgId;
-    }
-
-    public String getToUserName() {
-        return toUserName;
-    }
-
-    public void setToUserName(String toUserName) {
-        this.toUserName = toUserName;
-    }
-
-    public String getFromUserName() {
-        return fromUserName;
-    }
-
-    public void setFromUserName(String fromUserName) {
-        this.fromUserName = fromUserName;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public String getMsgType() {
-        return msgType;
-    }
-
-    public void setMsgType(String msgType) {
-        this.msgType = msgType;
     }
 
     public String getMsgId() {
