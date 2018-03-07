@@ -30,16 +30,23 @@ public class CenterDispatherHandlerController {
     @Autowired
     CenterDispatcherHandlerService centerDispatherHandlerService;
     @RequestMapping(method = RequestMethod.POST)
-    public Boolean centerDispatchHandler(){
-        boolean bvalue = false;
+    public void centerDispatchHandler(){
         try {
-            centerDispatherHandlerService.dispatcher(XmlUtils.parseXml(request));
-            bvalue =true;
+            String content = centerDispatherHandlerService.dispatcher(XmlUtils.parseXml(request));
+            response.setContentType("text/html;charset=utf-8");
+            PrintWriter writer = response.getWriter();
+            writer.write(content);
+            writer.flush();
         } catch (Exception e){
-            bvalue = false;
             e.printStackTrace();
         }
-        return bvalue;
+        try {
+            if (null !=response.getOutputStream()) {
+                response.getOutputStream().close();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     @RequestMapping(method = RequestMethod.GET)
     public void validate(){

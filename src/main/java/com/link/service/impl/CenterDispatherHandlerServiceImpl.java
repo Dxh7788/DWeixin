@@ -24,7 +24,8 @@ import java.util.Map;
 public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandlerService {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
-    public void dispatcher(Map<String, String> map) {
+    public String dispatcher(Map<String, String> map) {
+        String content = "谢谢您的关注";
         BaseRequestMessage message = new BaseRequestMessage();
         try {
             //创建时间
@@ -44,57 +45,58 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandle
             BaseRequestMessage shadowMessage = new BaseRequestMessage(toUserName, fromUserName, message.getCreateTime(), msgType, msgId);
             if (StringUtils.equals(msgType, TypeConstants.MsgType.TEXT_MSG_TYPE)){
                 //文本消息处理
-                textMessageDealer(map, shadowMessage);
+                content =textMessageDealer(map, shadowMessage);
                 logger.debug("处理文本消息");
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.IMAGE_MSG_TYPE)){
                 //图片消息处理
-                imageMessageDealer(map, shadowMessage);
+                content =imageMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VOICE_MSG_TYPE)){
                 //音频消息处理
-                voiceMessageDealer(map, shadowMessage);
+                content =voiceMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.VIDEO_MSG_TYPE)){
                 //视频消息处理
-                videoMessageDealer(map, shadowMessage);
+                content =videoMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LOCATION_MSG_TYPE)){
                 //定位信息处理
-                locationMessageDealer(map, shadowMessage);
+                content = locationMessageDealer(map, shadowMessage);
             }else if (StringUtils.equals(msgType, TypeConstants.MsgType.LINK_MSG_TYPE)){
                 //链接消息处理
-                linkMessageDealer(map, shadowMessage);
+                content = linkMessageDealer(map, shadowMessage);
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+        return content;
     }
 
-    private void linkMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String linkMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         LinkRequestMessage linkRequestMessage = wrapLinkRequestMessage(map, shadowMessage);
-        handleLinkMessage(linkRequestMessage);
+        return handleLinkMessage(linkRequestMessage);
     }
 
-    private void locationMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String locationMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         LocationRequestMessage locationRequestMessage = wrapLocationRequestMessage(map, shadowMessage);
-        handleLocationMessage(locationRequestMessage);
+        return handleLocationMessage(locationRequestMessage);
     }
 
-    private void videoMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String videoMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         VideoRequestMessage videoRequestMessage = wrapVideoRequestMessage(map, shadowMessage);
-        handleVideoMessage(videoRequestMessage);
+        return handleVideoMessage(videoRequestMessage);
     }
 
-    private void voiceMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String voiceMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         VoiceRequestMessage voiceRequestMessage = wrapVoiceRequestMessage(map, shadowMessage);
-        handleVoiceMessage(voiceRequestMessage);
+        return handleVoiceMessage(voiceRequestMessage);
     }
 
-    private void imageMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String imageMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         ImageRequestMessage imageRequestMessage = wrapImageRequestMessage(map, shadowMessage);
-        handleImageMessage(imageRequestMessage);
+        return handleImageMessage(imageRequestMessage);
     }
 
-    private void textMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
+    private String textMessageDealer(Map<String, String> map, BaseRequestMessage shadowMessage) {
         TextRequestMessage textRequestMessage = wrapTextRequestMessage(map, shadowMessage);
-        handleTextMessage(textRequestMessage);
+        return handleTextMessage(textRequestMessage);
     }
 
     private TextRequestMessage wrapTextRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
@@ -140,29 +142,35 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandle
     }
 
     //处理链接消息
-    private void handleLinkMessage(LinkRequestMessage linkRequestMessage) {
+    private String handleLinkMessage(LinkRequestMessage linkRequestMessage) {
+        return null;
     }
 
     //处理地址消息
-    private void handleLocationMessage(LocationRequestMessage locationRequestMessage) {
+    private String handleLocationMessage(LocationRequestMessage locationRequestMessage) {
+        return null;
     }
     //处理视频消息
-    private void handleVideoMessage(VideoRequestMessage videoRequestMessage) {
+    private String handleVideoMessage(VideoRequestMessage videoRequestMessage) {
+        return null;
     }
     //处理音频消息
-    private void handleVoiceMessage(VoiceRequestMessage voiceRequestMessage) {
+    private String handleVoiceMessage(VoiceRequestMessage voiceRequestMessage) {
+        return null;
     }
     //处理图片消息
-    private void handleImageMessage(ImageRequestMessage imageRequestMessage) {
+    private String handleImageMessage(ImageRequestMessage imageRequestMessage) {
+        return null;
     }
     //处理文本消息
-    private void handleTextMessage(TextRequestMessage textRequestMessage) {
+    private String handleTextMessage(TextRequestMessage textRequestMessage) {
         TextResponseMessage responseMessage = new TextResponseMessage();
         responseMessage.setFromUserName(textRequestMessage.getToUserName());
         responseMessage.setToUserName(textRequestMessage.getFromUserName());
         responseMessage.setCreateTime(new Date());
-        responseMessage.setContent("I has received you message,Hello");
+        responseMessage.setContent("我已经收到你的消息,请继续关注我们!谢谢");
         responseMessage.setMsgType("text");
         String content = XmlUtils.wrapperXml(responseMessage);
+        return content;
     }
 }

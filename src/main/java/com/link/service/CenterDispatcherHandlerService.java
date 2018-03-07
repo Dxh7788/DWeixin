@@ -10,5 +10,5 @@ import java.util.Map;
  */
 public interface CenterDispatcherHandlerService {
 
-    void dispatcher(Map<String,String> map);
+    String dispatcher(Map<String,String> map);
 }
