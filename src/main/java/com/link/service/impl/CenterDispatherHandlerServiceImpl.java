@@ -3,6 +3,8 @@ package com.link.service.impl;
 import com.link.constants.TypeConstants;
 import com.link.form.base.request.*;
 import com.link.form.base.response.TextResponseMessage;
+import com.link.form.base.response.VideoResponseMessage;
+import com.link.form.base.response.meta.Video;
 import com.link.service.CenterDispatcherHandlerService;
 import com.link.util.XmlUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -141,6 +143,9 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandle
         return linkRequestMessage;
     }
 
+    /**
+     * 核心处理器
+     * */
     //处理链接消息
     private String handleLinkMessage(LinkRequestMessage linkRequestMessage) {
         return null;
@@ -152,7 +157,18 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandle
     }
     //处理视频消息
     private String handleVideoMessage(VideoRequestMessage videoRequestMessage) {
-        return null;
+        VideoResponseMessage responseMessage = new VideoResponseMessage();
+        responseMessage.setFromUserName(videoRequestMessage.getToUserName());
+        responseMessage.setToUserName(videoRequestMessage.getFromUserName());
+        responseMessage.setCreateTime(new Date());
+        Video video = new Video();
+        video.setTitle("123");
+        video.setDescription("我来自测试DWeixin");
+        video.setMediaId(videoRequestMessage.getMediaId());
+        responseMessage.setVideo(video);
+        responseMessage.setMsgType("video");
+        String content = XmlUtils.wrapperXml(responseMessage);
+        return content;
     }
     //处理音频消息
     private String handleVoiceMessage(VoiceRequestMessage voiceRequestMessage) {
