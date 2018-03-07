@@ -1,19 +1,23 @@
 package com.link.form.base.response;
 
+import com.link.form.base.response.meta.Image;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin
  *
  * @author xh.d
  * @since 2018/3/7 10:59
  */
+@XStreamAlias("xml")
 public class ImageResponseMessage extends BaseResponseMessage {
-    private String mediaId;
+    private Image image;
 
-    public String getMediaId() {
-        return mediaId;
+    public Image getImage() {
+        return image;
     }
 
-    public void setMediaId(String mediaId) {
-        this.mediaId = mediaId;
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

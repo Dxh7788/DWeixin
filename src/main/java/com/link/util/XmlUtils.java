@@ -2,7 +2,8 @@ package com.link.util;
 
 import com.link.constants.TypeConstants;
 import com.link.form.base.response.BaseResponseMessage;
-import com.link.form.base.response.TextResponseMessage;
+import com.thoughtworks.xstream.XStream;
+import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
@@ -21,6 +22,7 @@ import java.util.Map;
  * @since 2018/3/6 12:53
  */
 public class XmlUtils {
+    private static XStream xStream = new XStream(new DomDriver());
     //解析request中的xml请求
     public static Map<String,String> parseXml(HttpServletRequest request) throws Exception{
         // 将解析结果存储在HashMap中
@@ -47,8 +49,7 @@ public class XmlUtils {
     public static String wrapperXml(BaseResponseMessage message){
         StringBuffer sb = new StringBuffer();
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
-            TextResponseMessage responseMessage = (TextResponseMessage)message;
-
+            //遍历map,首字母大写并加入[!CDATA[]]
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.IMAGE_MSG_TYPE)){
 
         }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.VOICE_MSG_TYPE)){

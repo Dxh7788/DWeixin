@@ -1,5 +1,8 @@
 package com.link.form.base.response;
 
+import com.link.util.CDATAConverter;
+import com.thoughtworks.xstream.annotations.XStreamConverter;
+
 import java.util.Date;
 
 /**
@@ -9,49 +12,54 @@ import java.util.Date;
  * @since 2018/3/6 13:09
  */
 public class BaseResponseMessage {
-    private String toUserName;//发自谁,openId
-    private String fromUserName;//发给谁
-    private Date createTime;//创建时间
-    private String msgType;//消息类型
-    private String msgId;//消息id
+    @XStreamConverter(CDATAConverter.class)
+    private String ToUserName;//发自谁,openId
+    @XStreamConverter(CDATAConverter.class)
+    private String FromUserName;//发给谁
+    @XStreamConverter(CDATAConverter.class)
+    private Date CreateTime;//创建时间
+    @XStreamConverter(CDATAConverter.class)
+    private String MsgType;//消息类型
+    @XStreamConverter(CDATAConverter.class)
+    private String MsgId;//消息id
 
     public String getToUserName() {
-        return toUserName;
+        return ToUserName;
     }
 
     public void setToUserName(String toUserName) {
-        this.toUserName = toUserName;
+        ToUserName = toUserName;
     }
 
     public String getFromUserName() {
-        return fromUserName;
+        return FromUserName;
     }
 
     public void setFromUserName(String fromUserName) {
-        this.fromUserName = fromUserName;
+        FromUserName = fromUserName;
     }
 
     public Date getCreateTime() {
-        return createTime;
+        return CreateTime;
     }
 
     public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
+        CreateTime = createTime;
     }
 
     public String getMsgType() {
-        return msgType;
+        return MsgType;
     }
 
     public void setMsgType(String msgType) {
-        this.msgType = msgType;
+        MsgType = msgType;
     }
 
     public String getMsgId() {
-        return msgId;
+        return MsgId;
     }
 
     public void setMsgId(String msgId) {
-        this.msgId = msgId;
+        MsgId = msgId;
     }
 }
