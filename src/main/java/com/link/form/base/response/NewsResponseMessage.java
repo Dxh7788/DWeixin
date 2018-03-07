@@ -16,7 +16,6 @@ import java.util.List;
  */
 @XStreamAlias("xml")
 public class NewsResponseMessage extends BaseResponseMessage {
-    @XStreamConverter(CDATAConverter.class)
     private Integer ArticleCount;
     private List<Item> articles = new ArrayList<Item>(0);
 

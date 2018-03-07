@@ -2,6 +2,7 @@ package com.link.util;
 
 import com.link.constants.TypeConstants;
 import com.link.form.base.response.*;
+import com.link.util.xstream.CDATAConverter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
@@ -51,6 +52,8 @@ public class XmlUtils {
         xStream.processAnnotations(new Class[]{TextResponseMessage.class, ImageResponseMessage.class, MusicResponseMessage.class,
                 NewsResponseMessage.class, TextResponseMessage.class, VideoResponseMessage.class, VoiceResponseMessage.class});
         String str = null;
+        xStream.aliasType("xml",BaseResponseMessage.class);
+        xStream.registerConverter(new CDATAConverter());
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
             TextResponseMessage responseMessage = (TextResponseMessage)message;
             str = xStream.toXML(responseMessage);

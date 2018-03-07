@@ -1,8 +1,5 @@
 package com.link.form.base.response;
 
-import com.link.util.xstream.CDATAConverter;
-import com.thoughtworks.xstream.annotations.XStreamConverter;
-
 import java.util.Date;
 
 /**
@@ -12,13 +9,9 @@ import java.util.Date;
  * @since 2018/3/6 13:09
  */
 public class BaseResponseMessage {
-    @XStreamConverter(CDATAConverter.class)
     private String ToUserName;//发自谁,openId
-    @XStreamConverter(CDATAConverter.class)
     private String FromUserName;//发给谁
-    @XStreamConverter(CDATAConverter.class)
     private Date CreateTime;//创建时间
-    @XStreamConverter(CDATAConverter.class)
     private String MsgType;//消息类型
 
     public String getToUserName() {
