@@ -29,7 +29,7 @@ public class MenuRunner implements ApplicationRunner,Ordered{
         ClickMenu cbt=new ClickMenu();
         cbt.setKey("image");
         cbt.setName("回复图片");
-        cbt.setType("click");
+        cbt.setType("event");
 
 
         ViewMenu vbt=new ViewMenu();

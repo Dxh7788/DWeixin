@@ -31,7 +31,7 @@ public class TypeConstants {
     }
     //事件类型
     public static class EventType{
-        public static final String CLICK_EVENT = "click";//点击类型
+        public static final String CLICK_EVENT = "event";//点击类型
         public static final String VIEW_EVENT = "view";//网页类型
         public static final String MINIPROGRAM = "miniprogram";//小程序
         public static final String SCANCODE_PUSH = "scancode_push";//
