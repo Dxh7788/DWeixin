@@ -15,7 +15,7 @@ public class SendPicsInfo {
     @XStreamAlias("Count")
     private Integer count;
     @XStreamAlias("PicList")
-    private List<PicList> picLists = new ArrayList<PicList>(0);
+    private List<Item> picList = new ArrayList<Item>(0);
 
     public Integer getCount() {
         return count;
@@ -25,11 +25,11 @@ public class SendPicsInfo {
         this.count = count;
     }
 
-    public List<PicList> getPicLists() {
-        return picLists;
+    public List<Item> getPicList() {
+        return picList;
     }
 
-    public void setPicLists(List<PicList> picLists) {
-        this.picLists = picLists;
+    public void setPicList(List<Item> picList) {
+        this.picList = picList;
     }
 }
