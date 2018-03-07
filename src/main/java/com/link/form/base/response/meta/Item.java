@@ -8,7 +8,7 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * @author xh.d
  * @since 2018/3/6 13:16
  */
-@XStreamAlias("Item")
+@XStreamAlias("item")
 public class Item {
     private String Title;
     private String PicUrl;
