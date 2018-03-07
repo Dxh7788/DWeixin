@@ -17,7 +17,7 @@ public class ImageResponseMessage extends BaseResponseMessage {
         return Image;
     }
 
-    public void setImage(com.link.form.base.response.meta.Image image) {
+    public void setImage(Image image) {
         Image = image;
     }
 }

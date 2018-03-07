@@ -17,7 +17,7 @@ public class VideoResponseMessage extends BaseResponseMessage{
         return Video;
     }
 
-    public void setVideo(com.link.form.base.response.meta.Video video) {
+    public void setVideo(Video video) {
         Video = video;
     }
 }

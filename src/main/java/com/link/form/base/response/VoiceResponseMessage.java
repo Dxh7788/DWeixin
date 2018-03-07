@@ -17,7 +17,7 @@ public class VoiceResponseMessage extends BaseResponseMessage{
         return Voice;
     }
 
-    public void setVoice(com.link.form.base.response.meta.Voice voice) {
+    public void setVoice(Voice voice) {
         Voice = voice;
     }
 }
