@@ -18,4 +18,13 @@ public class TypeConstants {
         public static final String LOCATION_MSG_TYPE = "location";
         public static final String LINK_MSG_TYPE = "link";
     }
+
+    public static class ResponseMsgType{
+        public static final String TEXT_MSG_TYPE = "text";
+        public static final String IMAGE_MSG_TYPE = "image";
+        public static final String VOICE_MSG_TYPE = "voice";
+        public static final String VIDEO_MSG_TYPE = "video";
+        public static final String MUSIC_MSG_TYPE = "music";
+        public static final String NEWS_MSG_TYPE = "news";
+    }
 }

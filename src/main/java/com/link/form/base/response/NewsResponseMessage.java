@@ -9,9 +9,9 @@ import java.util.List;
  * @author xh.d
  * @since 2018/3/6 13:15
  */
-public class FixedTextImgeResponseMessage extends BaseResponseMessage {
+public class NewsResponseMessage extends BaseResponseMessage {
     private Integer articleCount;
-    private List<Item> items = new ArrayList<Item>(0);
+    private List<Item> articles = new ArrayList<Item>(0);
 
     public Integer getArticleCount() {
         return articleCount;
@@ -21,11 +21,11 @@ public class FixedTextImgeResponseMessage extends BaseResponseMessage {
         this.articleCount = articleCount;
     }
 
-    public List<Item> getItems() {
-        return items;
+    public List<Item> getArticles() {
+        return articles;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setArticles(List<Item> articles) {
+        this.articles = articles;
     }
 }

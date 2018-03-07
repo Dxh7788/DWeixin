@@ -1,6 +1,10 @@
 package com.link.util;
 
+import com.link.constants.TypeConstants;
+import com.link.form.base.response.BaseResponseMessage;
+import com.link.form.base.response.TextResponseMessage;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;
+import org.apache.commons.lang3.StringUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
@@ -40,7 +44,22 @@ public class XmlUtils {
         return map;
     }
     //包装response的数据为xml
-    public static String wrapperXml(){
+    public static String wrapperXml(BaseResponseMessage message){
+        StringBuffer sb = new StringBuffer();
+        if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
+            TextResponseMessage responseMessage = (TextResponseMessage)message;
+
+        }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.IMAGE_MSG_TYPE)){
+
+        }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.VOICE_MSG_TYPE)){
+
+        }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.VIDEO_MSG_TYPE)){
+
+        }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.MUSIC_MSG_TYPE)){
+
+        }else if (StringUtils.equals(message.getMsgType(), TypeConstants.ResponseMsgType.NEWS_MSG_TYPE)){
+
+        }
         return null;
     }
 }

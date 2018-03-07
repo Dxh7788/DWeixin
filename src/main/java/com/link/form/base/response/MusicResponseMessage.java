@@ -8,9 +8,10 @@ package com.link.form.base.response;
  */
 public class MusicResponseMessage extends BaseResponseMessage {
     private String title;
-    private String Description;
+    private String description;
     private String musicUrl;
-    private String hqMusicUrl;
+    private String hQMusicUrl;
+    private String thumbMediaId;
 
     public String getTitle() {
         return title;
@@ -18,14 +19,6 @@ public class MusicResponseMessage extends BaseResponseMessage {
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
     }
 
     public String getMusicUrl() {
@@ -36,11 +29,27 @@ public class MusicResponseMessage extends BaseResponseMessage {
         this.musicUrl = musicUrl;
     }
 
-    public String getHqMusicUrl() {
-        return hqMusicUrl;
+    public String getDescription() {
+        return description;
     }
 
-    public void setHqMusicUrl(String hqMusicUrl) {
-        this.hqMusicUrl = hqMusicUrl;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String gethQMusicUrl() {
+        return hQMusicUrl;
+    }
+
+    public void sethQMusicUrl(String hQMusicUrl) {
+        this.hQMusicUrl = hQMusicUrl;
+    }
+
+    public String getThumbMediaId() {
+        return thumbMediaId;
+    }
+
+    public void setThumbMediaId(String thumbMediaId) {
+        this.thumbMediaId = thumbMediaId;
     }
 }
