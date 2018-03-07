@@ -1,7 +1,5 @@
 package com.link.form.base.request;
 
-import java.util.Date;
-
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin
  *
@@ -9,6 +7,9 @@ import java.util.Date;
  * @since 2018/3/6 12:59
  */
 public class ImageRequestMessage extends BaseRequestMessage {
+
+    private String picUrl;//图片url
+    private String mediaId;
 
     public ImageRequestMessage() {
     }
@@ -21,13 +22,19 @@ public class ImageRequestMessage extends BaseRequestMessage {
         this.setMsgType(baseRequestMessage.getMsgType());
     }
 
-    private String url;//图片url
-
-    public String getUrl() {
-        return url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
+    }
+
+    public String getMediaId() {
+        return mediaId;
+    }
+
+    public void setMediaId(String mediaId) {
+        this.mediaId = mediaId;
     }
 }
