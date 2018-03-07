@@ -1,5 +1,7 @@
 package com.link.data.form.base.request.menu.base;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +12,9 @@ import java.util.List;
  * @since 2018/3/7 17:04
  */
 public class SendPicsInfo {
+    @XStreamAlias("Count")
     private Integer count;
+    @XStreamAlias("PicList")
     private List<PicList> picLists = new ArrayList<PicList>(0);
 
     public Integer getCount() {

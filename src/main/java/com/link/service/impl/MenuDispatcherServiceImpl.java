@@ -3,7 +3,9 @@ package com.link.service.impl;
 import com.link.constants.TypeConstants;
 import com.link.data.form.base.request.menu.MenuBaseEventMessage;
 import com.link.service.MenuDispatcherService;
+import org.apache.catalina.servlet4preview.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -17,6 +19,8 @@ import java.util.Map;
 @Service
 public class MenuDispatcherServiceImpl implements MenuDispatcherService {
 
+    @Autowired
+    HttpServletRequest request;
     public void dispatcher(Map<String, String> map, MenuBaseEventMessage message) {
         String event = message.getEvent();
         if (StringUtils.equals(event, TypeConstants.EventType.CLICK_EVENT)){

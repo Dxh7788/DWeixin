@@ -2,6 +2,7 @@ package com.link.data.form.base.request.menu;
 
 import com.link.data.form.BaseMessage;
 import com.link.data.form.base.request.BaseRequestMessage;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin
@@ -9,8 +10,11 @@ import com.link.data.form.base.request.BaseRequestMessage;
  * @author xh.d
  * @since 2018/3/7 15:26
  */
+@XStreamAlias("xml")
 public class MenuBaseEventMessage  extends BaseMessage {
+    @XStreamAlias("Event")
     private String event;
+    @XStreamAlias("EventKey")
     private String eventKey;
 
     public MenuBaseEventMessage() {
