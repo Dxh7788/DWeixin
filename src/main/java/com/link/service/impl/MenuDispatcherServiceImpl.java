@@ -1,7 +1,7 @@
 package com.link.service.impl;
 
 import com.link.constants.TypeConstants;
-import com.link.form.base.request.menu.MenuBaseEventMessage;
+import com.link.data.form.base.request.menu.MenuBaseEventMessage;
 import com.link.service.MenuDispatcherService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;

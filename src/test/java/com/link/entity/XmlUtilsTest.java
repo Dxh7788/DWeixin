@@ -1,13 +1,12 @@
 package com.link.entity;
 
-import com.link.form.base.response.*;
-import com.link.form.base.response.meta.*;
+import com.link.data.form.base.response.*;
+import com.link.data.form.base.response.meta.*;
 import com.link.util.XmlUtils;
 import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 /**

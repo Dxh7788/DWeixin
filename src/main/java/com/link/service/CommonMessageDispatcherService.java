@@ -1,6 +1,6 @@
 package com.link.service;
 
-import com.link.form.base.request.BaseRequestMessage;
+import com.link.data.form.base.request.BaseRequestMessage;
 
 import java.util.Map;
 

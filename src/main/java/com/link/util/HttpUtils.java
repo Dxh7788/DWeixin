@@ -1,6 +1,6 @@
 package com.link.util;
 
-import com.link.form.bo.response.AccessToken;
+import com.link.data.form.bo.response.AccessToken;
 import com.link.weixin.AccessConfig;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;

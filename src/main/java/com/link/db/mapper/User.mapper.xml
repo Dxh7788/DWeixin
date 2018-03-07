@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.link.db.UserMapper">
-    <resultMap id="User" type="com.link.entity.User">
+    <resultMap id="User" type="com.link.data.entity.User">
         <id column="id" property="id" jdbcType="BIGINT" javaType="java.lang.Long"/>
         <result property="name" column="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
         <result property="pwd" column="pwd" jdbcType="VARCHAR" javaType="java.lang.String"/>
@@ -13,7 +13,7 @@
     <select id="findOne" parameterType="java.lang.Long" resultMap="User">
         SELECT <include refid="Base_Column_List"/> FROM user WHERE id = #{id}
     </select>
-    <insert id="insert" parameterType="com.link.entity.User" >
+    <insert id="insert" parameterType="com.link.data.entity.User" >
         INSERT INTO user (name,pwd) VALUES (#{name}, #{pwd})
     </insert>
 </mapper>

@@ -2,7 +2,7 @@ package com.link.startup.ordered;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.link.form.bo.response.AccessToken;
+import com.link.data.form.bo.response.AccessToken;
 import com.link.startup.menu.ClickMenu;
 import com.link.startup.menu.ViewMenu;
 import com.link.util.HttpUtils;

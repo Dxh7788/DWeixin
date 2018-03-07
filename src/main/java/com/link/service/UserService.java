@@ -1,6 +1,6 @@
 package com.link.service;
 
-import com.link.entity.User;
+import com.link.data.entity.User;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin

@@ -1,8 +1,8 @@
 package com.link.service.impl;
 
 import com.link.constants.TypeConstants;
-import com.link.form.base.request.*;
-import com.link.form.base.request.menu.MenuBaseEventMessage;
+import com.link.data.form.base.request.BaseRequestMessage;
+import com.link.data.form.base.request.menu.MenuBaseEventMessage;
 import com.link.service.CenterDispatcherHandlerService;
 import com.link.service.CommonMessageDispatcherService;
 import com.link.service.MenuDispatcherService;

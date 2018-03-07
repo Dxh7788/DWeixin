@@ -1,6 +1,6 @@
 package com.link.db;
 
-import com.link.entity.User;
+import com.link.data.entity.User;
 
 import java.util.List;
 

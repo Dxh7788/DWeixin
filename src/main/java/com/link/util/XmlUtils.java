@@ -1,7 +1,7 @@
 package com.link.util;
 
 import com.link.constants.TypeConstants;
-import com.link.form.base.response.*;
+import com.link.data.form.base.response.*;
 import com.link.util.xstream.CDATAConverter;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

@@ -2,7 +2,7 @@ package com.link.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.link.form.bo.response.AccessToken;
+import com.link.data.form.bo.response.AccessToken;
 
 /**
  * Copyright (C) 2017-2018 https://www.htouhui.com - A project by DWeixin

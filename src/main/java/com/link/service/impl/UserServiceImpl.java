@@ -1,7 +1,7 @@
 package com.link.service.impl;
 
 import com.link.db.UserMapper;
-import com.link.entity.User;
+import com.link.data.entity.User;
 import com.link.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

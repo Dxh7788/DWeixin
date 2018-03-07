@@ -1,6 +1,6 @@
 package com.link.service;
 
-import com.link.form.base.request.menu.MenuBaseEventMessage;
+import com.link.data.form.base.request.menu.MenuBaseEventMessage;
 
 import java.util.Map;
 
