@@ -32,19 +32,8 @@ public class CenterDispatherHandlerController {
     @RequestMapping(method = RequestMethod.POST)
     public void centerDispatchHandler(){
         try {
-            String content = centerDispatherHandlerService.dispatcher(XmlUtils.parseXml(request));
-            response.setContentType("text/html;charset=utf-8");
-            PrintWriter writer = response.getWriter();
-            writer.write(content);
-            writer.flush();
+            centerDispatherHandlerService.dispatcher(XmlUtils.parseXml(request));
         } catch (Exception e){
-            e.printStackTrace();
-        }
-        try {
-            if (null !=response.getOutputStream()) {
-                response.getOutputStream().close();
-            }
-        } catch (IOException e) {
             e.printStackTrace();
         }
     }
