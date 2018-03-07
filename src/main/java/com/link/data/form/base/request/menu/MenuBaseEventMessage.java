@@ -10,7 +10,6 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
  * @author xh.d
  * @since 2018/3/7 15:26
  */
-@XStreamAlias("xml")
 public class MenuBaseEventMessage  extends BaseMessage {
     @XStreamAlias("Event")
     private String event;
