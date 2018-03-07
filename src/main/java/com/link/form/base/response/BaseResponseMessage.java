@@ -20,8 +20,6 @@ public class BaseResponseMessage {
     private Date CreateTime;//创建时间
     @XStreamConverter(CDATAConverter.class)
     private String MsgType;//消息类型
-    @XStreamConverter(CDATAConverter.class)
-    private String MsgId;//消息id
 
     public String getToUserName() {
         return ToUserName;
@@ -53,13 +51,5 @@ public class BaseResponseMessage {
 
     public void setMsgType(String msgType) {
         MsgType = msgType;
-    }
-
-    public String getMsgId() {
-        return MsgId;
-    }
-
-    public void setMsgId(String msgId) {
-        MsgId = msgId;
     }
 }

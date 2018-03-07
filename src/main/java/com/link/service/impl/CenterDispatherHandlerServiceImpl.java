@@ -2,12 +2,15 @@ package com.link.service.impl;
 
 import com.link.constants.TypeConstants;
 import com.link.form.base.request.*;
+import com.link.form.base.response.TextResponseMessage;
 import com.link.service.CenterDispatcherHandlerService;
+import com.link.util.XmlUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 
@@ -154,5 +157,12 @@ public class CenterDispatherHandlerServiceImpl implements CenterDispatcherHandle
     }
     //处理文本消息
     private void handleTextMessage(TextRequestMessage textRequestMessage) {
+        TextResponseMessage responseMessage = new TextResponseMessage();
+        responseMessage.setFromUserName(textRequestMessage.getToUserName());
+        responseMessage.setToUserName(textRequestMessage.getFromUserName());
+        responseMessage.setCreateTime(new Date());
+        responseMessage.setContent("I has received you message,Hello");
+        responseMessage.setMsgType("text");
+        String content = XmlUtils.wrapperXml(responseMessage);
     }
 }

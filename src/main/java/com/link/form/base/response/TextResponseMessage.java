@@ -13,13 +13,13 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 @XStreamAlias("xml")
 public class TextResponseMessage extends BaseResponseMessage {
     @XStreamConverter(CDATAConverter.class)
-    private String content;//文本内容
+    private String Content;//文本内容
 
     public String getContent() {
-        return content;
+        return Content;
     }
 
     public void setContent(String content) {
-        this.content = content;
+        Content = content;
     }
 }

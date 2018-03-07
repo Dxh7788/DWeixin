@@ -20,7 +20,6 @@ public class XmlUtilsTest {
         responseMessage.setCreateTime(new Date());
         responseMessage.setFromUserName("123");
         responseMessage.setToUserName("321");
-        responseMessage.setMsgId("12");
         responseMessage.setMsgType("text");
 
         System.out.println(XmlUtils.wrapperXml(responseMessage));
