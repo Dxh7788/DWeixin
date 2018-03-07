@@ -101,7 +101,7 @@ public class CommonMessageDispatcherServiceImpl implements CommonMessageDispatch
 
     private ImageRequestMessage wrapImageRequestMessage(Map<String, String> map, BaseRequestMessage shadowMessage) {
         ImageRequestMessage imageRequestMessage = new ImageRequestMessage(shadowMessage);
-        imageRequestMessage.setUrl(map.get("Url"));
+        imageRequestMessage.setPicUrl(map.get("PicUrl"));
         return imageRequestMessage;
     }
 
