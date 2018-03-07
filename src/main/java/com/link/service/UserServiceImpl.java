@@ -1,4 +1,4 @@
-package com.link.service.impl;
+package com.link.service;
 
 import com.link.db.UserMapper;
 import com.link.data.entity.User;

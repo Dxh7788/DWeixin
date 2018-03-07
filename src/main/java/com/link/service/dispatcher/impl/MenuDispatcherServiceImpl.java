@@ -1,8 +1,8 @@
-package com.link.service.impl;
+package com.link.service.dispatcher.impl;
 
 import com.link.constants.TypeConstants;
 import com.link.data.form.base.request.menu.*;
-import com.link.service.MenuDispatcherService;
+import com.link.service.dispatcher.MenuDispatcherService;
 import com.link.service.event.MajorEventHandlerService;
 import com.link.service.code.ScanCodeHandlerService;
 import com.link.service.pic.PicHandlerService;

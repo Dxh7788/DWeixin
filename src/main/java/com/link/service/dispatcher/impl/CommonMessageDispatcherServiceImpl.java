@@ -1,11 +1,11 @@
-package com.link.service.impl;
+package com.link.service.dispatcher.impl;
 
 import com.link.constants.TypeConstants;
 import com.link.data.form.base.request.*;
 import com.link.data.form.base.response.TextResponseMessage;
 import com.link.data.form.base.response.VideoResponseMessage;
 import com.link.data.form.base.response.meta.Video;
-import com.link.service.CommonMessageDispatcherService;
+import com.link.service.dispatcher.CommonMessageDispatcherService;
 import com.link.util.XmlUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

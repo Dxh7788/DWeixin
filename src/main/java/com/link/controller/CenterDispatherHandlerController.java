@@ -1,6 +1,6 @@
 package com.link.controller;
 
-import com.link.service.CenterDispatcherHandlerService;
+import com.link.service.dispatcher.CenterDispatcherHandlerService;
 import com.link.util.SignUtil;
 import com.link.util.XmlUtils;
 import org.apache.catalina.servlet4preview.http.HttpServletRequest;

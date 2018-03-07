@@ -1,4 +1,4 @@
-package com.link.service;
+package com.link.service.dispatcher;
 
 import com.link.data.form.base.request.menu.MenuBaseEventMessage;
 

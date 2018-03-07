@@ -1,11 +1,11 @@
-package com.link.service.impl;
+package com.link.service.dispatcher.impl;
 
 import com.link.constants.TypeConstants;
 import com.link.data.form.base.request.BaseRequestMessage;
 import com.link.data.form.base.request.menu.MenuBaseEventMessage;
-import com.link.service.CenterDispatcherHandlerService;
-import com.link.service.CommonMessageDispatcherService;
-import com.link.service.MenuDispatcherService;
+import com.link.service.dispatcher.CenterDispatcherHandlerService;
+import com.link.service.dispatcher.CommonMessageDispatcherService;
+import com.link.service.dispatcher.MenuDispatcherService;
 import com.link.util.DateUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
