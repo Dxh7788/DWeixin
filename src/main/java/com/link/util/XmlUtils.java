@@ -25,6 +25,7 @@ import java.util.Map;
  */
 public class XmlUtils {
     private static XStream xStream = new XStream(new DomDriver());
+    private static CDATAConverter cDataConverter = new CDATAConverter();
     //解析request中的xml请求
     public static Map<String,String> parseXml(HttpServletRequest request) throws Exception{
         // 将解析结果存储在HashMap中
@@ -53,7 +54,7 @@ public class XmlUtils {
                 NewsResponseMessage.class, TextResponseMessage.class, VideoResponseMessage.class, VoiceResponseMessage.class});
         String str = null;
         xStream.aliasType("xml",BaseResponseMessage.class);
-        xStream.registerConverter(new CDATAConverter());
+        xStream.registerConverter(cDataConverter);
         if (StringUtils.equals(message.getMsgType(), TypeConstants.MsgType.TEXT_MSG_TYPE)){
             TextResponseMessage responseMessage = (TextResponseMessage)message;
             str = xStream.toXML(responseMessage);
